@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { InputFieldComponent } from './inputfield/input-field.component';
+import { InputFieldComponent } from './input-field/input-field.component';
 import { CurrencyExchangerComponent } from './currency-exchanger/currency-exchanger.component';
 import { SelectDropdownComponent } from './select-dropdown/select-dropdown.component';
 
