@@ -1,0 +1,12 @@
+.form-container {
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 0.4rem;
+}
+
+h2 {
+  padding: 2.4rem 0 3.2rem;
+  text-align: center;
+  color: #f2f2f2;
+}
