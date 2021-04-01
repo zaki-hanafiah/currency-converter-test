@@ -8,8 +8,14 @@ import { ApiService } from '../api.service';
 })
 export class CurrencyExchangerComponent implements OnInit {
   currency_rates: any = {};
+  rate_selected: any | undefined;
 
   constructor(private apiService: ApiService) {}
+
+  onSetCurrencyRate($event: any) {
+    console.log('firing', $event);
+    this.rate_selected = $event;
+  }
 
   ngOnInit() {
     this.apiService.getCurrencyRatesForUSD().subscribe((data) => {

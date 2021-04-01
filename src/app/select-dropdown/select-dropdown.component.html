@@ -1,8 +1,6 @@
 <mat-form-field appearance="fill">
   <mat-label>Currency</mat-label>
-  <mat-select [(value)]="selected">
+  <mat-select [(value)]="selected" (valueChange)="handleChange($event)">
     <mat-option *ngFor="let item of options | keyvalue" value="{{ item.value }}">{{ item.key }}</mat-option>
   </mat-select>
 </mat-form-field>
-
-<p>You selected: {{ selected }}</p>

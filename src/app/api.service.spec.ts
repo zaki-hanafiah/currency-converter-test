@@ -4,7 +4,7 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 import { ApiService } from './api.service';
 
 describe('ApiService', () => {
-  let httpMock: HttpTestingController;
+  // let httpMock: HttpTestingController;
   let service: ApiService;
 
   beforeEach(() => {
@@ -16,7 +16,7 @@ describe('ApiService', () => {
     service = TestBed.inject(ApiService);
   });
 
-  test('should exist', () => {
+  test('should return data', () => {
     expect(service).toBeDefined();
   });
 });

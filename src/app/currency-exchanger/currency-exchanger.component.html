@@ -2,10 +2,14 @@
   <h2>Currency Converter</h2>
   <div class="form-container">
     <div>
-      <app-inputfield></app-inputfield>
+      <app-select-dropdown
+        [options]="currency_rates?.rates"
+        (onSelectChange)="onSetCurrencyRate($event)"
+      ></app-select-dropdown>
+      <p style="color: white;">{{ rate_selected }}</p>
     </div>
     <div>
-      <app-select-dropdown [options]="currency_rates?.rates"></app-select-dropdown>
+      <app-inputfield></app-inputfield>
     </div>
   </div>
 </div>
