@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,16 +13,16 @@ import { CurrencyExchangerComponent } from './currency-exchanger/currency-exchan
 import { SelectDropdownComponent } from './select-dropdown/select-dropdown.component';
 
 @NgModule({
-  declarations: [AppComponent, InputFieldComponent, CurrencyExchangerComponent, SelectDropdownComponent],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatInputModule,
-    MatSelectModule,
-    HttpClientModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent, InputFieldComponent, MatSelectModule],
+	declarations: [AppComponent, InputFieldComponent, CurrencyExchangerComponent, SelectDropdownComponent],
+	imports: [
+		BrowserModule,
+		AppRoutingModule,
+		BrowserAnimationsModule,
+		MatInputModule,
+		MatSelectModule,
+		HttpClientModule,
+	],
+	providers: [{ provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher }],
+	bootstrap: [AppComponent],
 })
 export class AppModule {}
