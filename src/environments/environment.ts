@@ -4,6 +4,7 @@
 
 export const environment = {
 	production: false,
+	currencyApiKey: process.env.API_KEY,
 };
 
 /*
