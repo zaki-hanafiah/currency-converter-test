@@ -33,6 +33,7 @@ speed-measure-plugin*.json
 *.code-workspace
 
 # misc
+.env
 /.sass-cache
 /connect.lock
 /coverage

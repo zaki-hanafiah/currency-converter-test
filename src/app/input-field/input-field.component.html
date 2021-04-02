@@ -1,6 +1,6 @@
 <mat-form-field class="input-field">
 	<mat-label>Amount</mat-label>
-	<input type="text" matInput placeholder="Ex. 0.00" required />
-	<mat-hint *ngIf="!inputFormControl.hasError('required')">Please enter a valid amount</mat-hint>
+	<input type="text" matInput placeholder="Ex. 0.00" (keyup)="handleChange($event)" />
+	<mat-hint *ngIf="!inputFormControl.value">Please enter a valid amount</mat-hint>
 	<mat-error *ngIf="inputFormControl.hasError('required')"> Number is <strong>required</strong> </mat-error>
 </mat-form-field>

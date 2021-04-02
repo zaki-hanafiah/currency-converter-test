@@ -11,9 +11,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InputFieldComponent } from './input-field/input-field.component';
 import { CurrencyExchangerComponent } from './currency-exchanger/currency-exchanger.component';
 import { SelectDropdownComponent } from './select-dropdown/select-dropdown.component';
+import { HomeComponent } from './home/home.component';
+import { SettingsComponent } from './settings/settings.component';
+import { LoginComponent } from './login/login.component';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
-	declarations: [AppComponent, InputFieldComponent, CurrencyExchangerComponent, SelectDropdownComponent],
+	declarations: [
+		AppComponent,
+		InputFieldComponent,
+		CurrencyExchangerComponent,
+		SelectDropdownComponent,
+		HomeComponent,
+		SettingsComponent,
+		LoginComponent,
+	],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
@@ -21,6 +33,7 @@ import { SelectDropdownComponent } from './select-dropdown/select-dropdown.compo
 		MatInputModule,
 		MatSelectModule,
 		HttpClientModule,
+		StoreModule.forRoot({}, {}),
 	],
 	providers: [{ provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher }],
 	bootstrap: [AppComponent],

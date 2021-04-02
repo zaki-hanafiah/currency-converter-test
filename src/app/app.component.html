@@ -1,4 +1,8 @@
-<ng-content> </ng-content>
-<div class="card">
-  <app-currency-exchanger></app-currency-exchanger>
+<nav>
+	<a routerLink="/home">Home</a>
+	<a routerLink="/settings">Settings</a>
+	<a routerLink="/login">Login</a>
+</nav>
+<div class="container">
+	<router-outlet></router-outlet>
 </div>

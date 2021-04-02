@@ -1,12 +1,59 @@
 .form-container {
-  display: grid;
-  justify-items: center;
-  grid-template-columns: 0.3fr 1fr;
-  grid-gap: 0.4rem;
+	display: grid;
+	justify-items: center;
+	grid-template-columns: 0.3fr 1fr;
+	grid-gap: 0.4rem;
+}
+
+.card {
+	max-width: 400px;
 }
 
 h2 {
-  padding: 2.4rem 0 3.2rem;
-  text-align: center;
-  color: #f2f2f2;
+	padding: 2.4rem 0 3.2rem;
+	text-align: center;
+	color: #f2f2f2;
+}
+
+span,
+p {
+	color: white;
+}
+
+.currency {
+	&-result {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-gap: 0.4rem;
+		padding: 1.8rem 0;
+	}
+	&-arrow-separator {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		& > svg {
+			width: 90px;
+			height: auto;
+		}
+	}
+	&-block {
+		display: flex;
+		justify-content: flex-start;
+		align-items: flex-start;
+		flex-direction: column;
+
+		&__type {
+			font-size: 4.2rem;
+			line-height: 0.9;
+		}
+		&__value {
+			font-size: 2.4rem;
+			line-height: 1;
+		}
+		&:last-child {
+			justify-content: flex-end;
+			align-items: flex-end;
+		}
+	}
 }

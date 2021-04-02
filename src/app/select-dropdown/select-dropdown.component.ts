@@ -1,17 +1,20 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-select-dropdown',
-  templateUrl: './select-dropdown.component.html',
-  styleUrls: ['./select-dropdown.component.scss'],
+	selector: 'app-select-dropdown',
+	templateUrl: './select-dropdown.component.html',
+	styleUrls: ['./select-dropdown.component.scss'],
 })
 export class SelectDropdownComponent {
-  @Input() options: any;
-  @Output() onSelectChange = new EventEmitter();
+	@Input() options: any;
+	@Output() onSelectChange = new EventEmitter();
 
-  selected: number | string = '';
+	selected: number | string = '';
 
-  handleChange(value: any) {
-    this.onSelectChange.emit(value);
-  }
+	handleChange(event: any) {
+		this.onSelectChange.emit({
+			value: event.value,
+			text: event.source.triggerValue,
+		});
+	}
 }
