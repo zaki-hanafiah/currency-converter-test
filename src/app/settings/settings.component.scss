@@ -1,3 +1,21 @@
+.settings {
+	&-wrapper {
+		margin-top: 2.4rem;
+	}
+	&-box {
+		padding: 1.2rem;
+	}
+	&-layout {
+		min-width: 320px;
+	}
+	&-field {
+		width: 100%;
+	}
+	&-title {
+		padding-bottom: 2rem;
+	}
+}
+
 p,
 span {
 	color: white;

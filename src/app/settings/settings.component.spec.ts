@@ -2,6 +2,8 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ApiService } from '../api.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { OverlayModule } from '@angular/cdk/overlay';
 import { SettingsComponent } from './settings.component';
 
 describe('SettingsComponent', () => {
@@ -11,9 +13,9 @@ describe('SettingsComponent', () => {
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
 			declarations: [SettingsComponent],
-			imports: [HttpClientTestingModule],
+			imports: [HttpClientTestingModule, OverlayModule],
 			schemas: [CUSTOM_ELEMENTS_SCHEMA],
-			providers: [ApiService],
+			providers: [ApiService, MatSnackBar],
 		}).compileComponents();
 	});
 

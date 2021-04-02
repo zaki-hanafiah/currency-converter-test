@@ -23,6 +23,7 @@ export class AuthGuardService {
 
 	public logout() {
 		localStorage.removeItem('login_token');
+		localStorage.removeItem('currencies_selected');
 		this.snackBar.open('You have successfully signed out', 'Dismiss', {
 			duration: 3500,
 			horizontalPosition: 'right',

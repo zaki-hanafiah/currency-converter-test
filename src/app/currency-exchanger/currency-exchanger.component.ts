@@ -14,6 +14,7 @@ export class CurrencyExchangerComponent implements OnInit {
 	rate_selected: number | undefined;
 	base_amount: number | undefined;
 	final_amount: number | undefined;
+	// TODO: Use form group validation instead of manual validation
 	amount_error_message: string | undefined;
 	rate_error_message: string | undefined;
 	is_dirty: boolean = false;
@@ -59,9 +60,23 @@ export class CurrencyExchangerComponent implements OnInit {
 	}
 
 	ngOnInit() {
+		const saved_currencies_list = localStorage.getItem('currencies_selected');
 		// TODO: move to store, cache response until x amount of time elapsed to update cached response
 		this.apiService.getCurrencyRatesForUSD().subscribe((data: any) => {
 			this.currency_rates = data?.rates;
+			if (saved_currencies_list && typeof saved_currencies_list === 'string') {
+				const selected_rates = JSON.parse(saved_currencies_list);
+
+				const filtered_currencies = Object.keys(data?.rates)
+					.filter((key) => selected_rates.includes(key))
+					.reduce((obj, key) => {
+						return {
+							...obj,
+							[key]: data?.rates[key],
+						};
+					}, {});
+				this.currency_rates = filtered_currencies;
+			}
 			this.currency_fetched_time = dayjs.unix(data?.updated).format('YYYY-MM-DD HH:mm:ss');
 		});
 	}
