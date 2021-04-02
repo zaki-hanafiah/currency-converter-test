@@ -2,7 +2,9 @@ name: run_unit_tests
 
 on:
   push:
-    - branch: master
+    branches: master
+    paths:
+      - src/**
 
 jobs:
   build:
