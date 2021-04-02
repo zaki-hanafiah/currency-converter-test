@@ -1,17 +1,19 @@
 <div class="card">
 	<h2>Exchange Rate Converter</h2>
 	<div class="form-container">
-		<div>
+		<div class="form-field">
 			<app-select-dropdown
 				[options]="currency_rates"
 				(onSelectChange)="onSetCurrencyRate($event)"
 			></app-select-dropdown>
+			<span *ngIf="!!rate_error_message" class="form-field--error">{{ rate_error_message }}</span>
 		</div>
-		<div>
+		<div class="form-field">
 			<app-input-field (onValueChange)="onSetBaseAmount($event)"></app-input-field>
+			<span *ngIf="!!amount_error_message" class="form-field--error">{{ amount_error_message }}</span>
 		</div>
 	</div>
-	<div *ngIf="!!final_amount">
+	<div *ngIf="!!base_amount && !!rate_selected">
 		<div class="currency-result">
 			<div class="currency-block">
 				<span class="currency-block__type">

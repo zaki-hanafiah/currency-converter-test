@@ -5,12 +5,11 @@ import { HttpClient } from '@angular/common/http';
 	providedIn: 'root',
 })
 export class ApiService {
-	// Move API_KEY to env
+	constructor(private httpClient: HttpClient) {}
+	// TODO: Move API_KEY to env
 	API_KEY = 'QIkKCRzVe3kHFWgHTU6kMvyFA5CvIGtBXurz';
 
 	public getCurrencyRatesForUSD() {
 		return this.httpClient.get(`https://currencyapi.net/api/v1/rates?key=${this.API_KEY}&base=USD`);
 	}
-
-	constructor(private httpClient: HttpClient) {}
 }

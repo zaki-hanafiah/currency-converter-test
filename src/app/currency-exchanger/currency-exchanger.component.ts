@@ -14,19 +14,39 @@ export class CurrencyExchangerComponent implements OnInit {
 	rate_selected: number | undefined;
 	base_amount: number | undefined;
 	final_amount: number | undefined;
-	errors: object = {};
+	amount_error_message: string | undefined;
+	rate_error_message: string | undefined;
+	is_dirty: boolean = false;
 
 	constructor(private apiService: ApiService) {}
 
 	onSetCurrencyRate($event: { value: number; text: string }) {
 		this.rate_selected = $event.value;
 		this.currency_selected = $event.text;
+		if (this.rate_error_message) {
+			this.rate_error_message = undefined;
+		}
 		this.calculateConversion();
 	}
 
 	onSetBaseAmount($event: any) {
-		if (isNaN($event)) return;
-		this.base_amount = $event || 0;
+		if (isNaN($event)) {
+			this.amount_error_message = 'Please key in a valid amount';
+			return;
+		}
+		this.amount_error_message = undefined;
+
+		if ($event.length < 1 || Number($event) === 0) {
+			this.amount_error_message = 'Amount is required';
+		} else {
+			this.amount_error_message = undefined;
+		}
+		if (!this.rate_selected && this.is_dirty) {
+			this.rate_error_message = 'Please select a currency';
+		} else {
+			this.rate_error_message = undefined;
+		}
+		this.base_amount = $event;
 		this.calculateConversion();
 	}
 
@@ -34,6 +54,7 @@ export class CurrencyExchangerComponent implements OnInit {
 		if (!this.rate_selected || !this.base_amount) {
 			return;
 		}
+		this.is_dirty = true;
 		this.final_amount = Number((Number(this.base_amount) / Number(this.rate_selected)).toFixed(2));
 	}
 

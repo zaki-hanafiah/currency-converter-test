@@ -27,6 +27,7 @@
     "@angular/router": "~11.2.7",
     "@ngrx/store": "^11.1.0",
     "dayjs": "^1.10.4",
+    "ng-multiselect-dropdown": "^0.3.4",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"

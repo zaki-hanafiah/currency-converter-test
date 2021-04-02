@@ -1,8 +1,23 @@
-.form-container {
-	display: grid;
-	justify-items: center;
-	grid-template-columns: 0.3fr 1fr;
-	grid-gap: 0.4rem;
+.form {
+	&-container {
+		display: grid;
+		justify-items: center;
+		grid-template-columns: 0.3fr 1fr;
+		grid-gap: 0.4rem;
+	}
+	&-field {
+		position: relative;
+
+		&--error {
+			font-size: 0.7rem;
+			font-weight: 400;
+			line-height: 1.125;
+			color: #f44336;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+		}
+	}
 }
 
 .card {
