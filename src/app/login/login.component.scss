@@ -5,6 +5,17 @@
 	&-box {
 		padding: 1.2rem;
 	}
+	&-layout {
+		min-width: 320px;
+	}
+	&-field {
+		width: 100%;
+	}
+	&-btn {
+		&__submit {
+			margin-top: 1.4rem;
+		}
+	}
 }
 
 p,

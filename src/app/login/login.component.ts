@@ -18,7 +18,6 @@ export class LoginComponent implements OnInit {
 		this.formGroup = this.formBuilder.group({
 			username: [null, Validators.required],
 			password: [null, [Validators.required, this.checkPassword]],
-			description: [null, [Validators.required, Validators.minLength(5), Validators.maxLength(10)]],
 			validate: '',
 		});
 	}
@@ -41,7 +40,7 @@ export class LoginComponent implements OnInit {
 
 	getErrorPassword() {
 		return this.formGroup.get('password').hasError('required')
-			? 'Field is required (at least eight characters, one uppercase letter and one number)'
+			? 'Field is required'
 			: this.formGroup.get('password').hasError('requirements')
 			? 'Password needs to be at least eight characters, one uppercase letter and one number'
 			: '';
