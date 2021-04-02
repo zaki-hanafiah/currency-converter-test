@@ -1,0 +1,20 @@
+name: run_unit_tests
+
+on:
+  push:
+    - branch: master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run unit tests
+        uses: actions/setup-node@v1
+        with:
+          node-version: [15.x]
+      - run: npm install
+      - run: npm run test
+        env:
+          CI: true

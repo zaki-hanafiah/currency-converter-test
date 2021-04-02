@@ -37,8 +37,8 @@ export class CurrencyExchangerComponent implements OnInit {
 		}
 		this.amount_error_message = undefined;
 
-		if ($event.length < 1 || Number($event) === 0) {
-			this.amount_error_message = 'Amount is required';
+		if ($event.length < 1 || Number($event) <= 0) {
+			this.amount_error_message = 'A valid amount is required';
 		} else {
 			this.amount_error_message = undefined;
 		}
