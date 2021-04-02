@@ -7,7 +7,4 @@ module.exports = {
 	collectCoverage: true,
 	coverageReporters: ['html'],
 	coverageDirectory: 'coverage/currency-converter-test',
-	moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths || {}, {
-		prefix: '<rootDir>/',
-	}),
 };
