@@ -38,7 +38,7 @@ export class SettingsComponent implements OnInit {
 		}
 		localStorage.setItem('currencies_selected', JSON.stringify(this.currenciesForm.value));
 		this.snackBar.open('Successfully saved settings!', 'Dismiss', {
-			duration: 3500,
+			duration: 2500,
 			horizontalPosition: 'right',
 			verticalPosition: 'top',
 		});
