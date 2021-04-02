@@ -2,6 +2,14 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.6.
 
+## About
+
+Exchange rate / Currency converter app using rates provided by [CurrencyAPI](https://currencyapi.net)
+
+- You'll need to generate your own API key and add it to the `.env` file. Example is provided.
+
+Test Link: https://currency-converter-test-zakhov.vercel.app/
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
