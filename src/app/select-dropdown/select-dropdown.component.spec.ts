@@ -5,23 +5,23 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { SelectDropdownComponent } from './select-dropdown.component';
 
 describe('SelectDropdownComponent', () => {
-  let component: SelectDropdownComponent;
-  let fixture: ComponentFixture<SelectDropdownComponent>;
+	let component: SelectDropdownComponent;
+	let fixture: ComponentFixture<SelectDropdownComponent>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [SelectDropdownComponent],
-      schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    }).compileComponents();
-  });
+	beforeEach(async () => {
+		await TestBed.configureTestingModule({
+			declarations: [SelectDropdownComponent],
+			schemas: [CUSTOM_ELEMENTS_SCHEMA],
+		}).compileComponents();
+	});
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(SelectDropdownComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+	beforeEach(() => {
+		fixture = TestBed.createComponent(SelectDropdownComponent);
+		component = fixture.componentInstance;
+		fixture.detectChanges();
+	});
 
-  test('should exist', () => {
-    expect(component).toBeDefined();
-  });
+	test('should exist', () => {
+		expect(component).toBeDefined();
+	});
 });

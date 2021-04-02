@@ -1,12 +1,11 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
-import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
 import { HttpClientModule } from '@angular/common/http';
-
+import { AngularMaterialModule } from './angular-material.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InputFieldComponent } from './input-field/input-field.component';
 import { CurrencyExchangerComponent } from './currency-exchanger/currency-exchanger.component';
@@ -27,15 +26,17 @@ import { StoreModule } from '@ngrx/store';
 		LoginComponent,
 	],
 	imports: [
+		AngularMaterialModule,
 		BrowserModule,
 		AppRoutingModule,
 		BrowserAnimationsModule,
-		MatInputModule,
-		MatSelectModule,
 		HttpClientModule,
+		FormsModule,
+		FlexLayoutModule,
+		ReactiveFormsModule,
 		StoreModule.forRoot({}, {}),
 	],
-	providers: [{ provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher }],
 	bootstrap: [AppComponent],
+	schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}

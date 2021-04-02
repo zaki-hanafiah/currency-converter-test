@@ -1,8 +1,11 @@
-<nav>
-	<a routerLink="/home">Home</a>
-	<a routerLink="/settings">Settings</a>
-	<a routerLink="/login">Login</a>
-</nav>
+<mat-toolbar color="primary" class="app-header">
+	<div><a routerLink="/" class="logo">Z</a></div>
+	<span class="nav-tool-items">
+		<a class="nav-link" mat-button routerLink="/home">Home</a>
+		<a class="nav-link" mat-button routerLink="/settings">Settings</a>
+		<a class="nav-link" mat-button mat-raised-button routerLink="/login">Login</a>
+	</span>
+</mat-toolbar>
 <div class="container">
 	<router-outlet></router-outlet>
 </div>

@@ -8,17 +8,23 @@
 	height: 100%;
 }
 
-nav {
+.logo {
+	font-weight: bolder;
+	color: white;
+	text-decoration: none;
+	margin-right: 2rem;
+}
+
+.app-header {
 	background-color: #000;
-	height: 2rem;
+	height: 3rem;
 	display: flex;
 	align-items: center;
 
-	a {
+	.nav-link {
 		text-decoration: none;
-		font-size: 1.2rem;
-		color: white;
-		font-weight: bold;
+		color: #f4f4f4;
 		padding: 0 1.6rem;
+		font-weight: lighter;
 	}
 }

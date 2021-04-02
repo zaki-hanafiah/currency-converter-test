@@ -8,16 +8,17 @@ import dayjs from 'dayjs';
 	styleUrls: ['./currency-exchanger.component.scss'],
 })
 export class CurrencyExchangerComponent implements OnInit {
-	currency_rates: any = {};
-	currency_selected: any | undefined;
-	currency_fetched_time: any | undefined;
-	rate_selected: any | undefined;
-	base_amount: any | undefined;
-	final_amount: any | undefined;
+	currency_rates: Object = {};
+	currency_selected: String | undefined;
+	currency_fetched_time: String | undefined;
+	rate_selected: Number | undefined;
+	base_amount: Number | undefined;
+	final_amount: Number | undefined;
+	errors: Object = {};
 
 	constructor(private apiService: ApiService) {}
 
-	onSetCurrencyRate($event: { value: any; text: any }) {
+	onSetCurrencyRate($event: { value: Number; text: String }) {
 		this.rate_selected = $event.value;
 		this.currency_selected = $event.text;
 		this.calculateConversion();
@@ -33,7 +34,7 @@ export class CurrencyExchangerComponent implements OnInit {
 		if (!this.rate_selected || !this.base_amount) {
 			return;
 		}
-		this.final_amount = (Number(this.base_amount) / Number(this.rate_selected)).toFixed(2);
+		this.final_amount = Number((Number(this.base_amount) / Number(this.rate_selected)).toFixed(2));
 	}
 
 	ngOnInit() {
