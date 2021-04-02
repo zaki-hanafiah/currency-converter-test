@@ -10,7 +10,7 @@
 }
 
 h2 {
-	padding: 2.4rem 0 3.2rem;
+	padding: 2.4rem 0 2rem;
 	text-align: center;
 	color: #f2f2f2;
 }
@@ -18,6 +18,11 @@ h2 {
 span,
 p {
 	color: white;
+}
+
+.info {
+	font-weight: light;
+	font-size: 0.8rem;
 }
 
 .currency {

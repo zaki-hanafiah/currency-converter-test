@@ -3,7 +3,7 @@
 	<div class="form-container">
 		<div>
 			<app-select-dropdown
-				[options]="currency_rates?.rates"
+				[options]="currency_rates"
 				(onSelectChange)="onSetCurrencyRate($event)"
 			></app-select-dropdown>
 		</div>
@@ -38,10 +38,23 @@
 				</span>
 			</div>
 		</div>
-		<p style="font-weight: light;">
+		<p class="info">
 			* Based on conversion rate where
-			<i style="font-style: normal; font-weight: bold;">{{ currency_selected }} {{ rate_selected }}</i> is equal to
+			<i style="font-style: normal; font-weight: bold;">{{ rate_selected }} {{ currency_selected }}</i> is equivalent to
 			<i style="font-style: normal; font-weight: bold;">1 USD</i>.
+		</p>
+		<p class="info">
+			* Exchange rates provided are correct based on information fetched from
+			<a
+				style="color: white; font-weight: bolder;"
+				href="https://currencyapi.net"
+				target="_blank"
+				rel="noopener noreferrer"
+				>https://currencyapi.net</a
+			>
+			on
+			<i style="font-style: normal; font-weight: bold;">{{ currency_fetched_time }}</i
+			>.
 		</p>
 	</div>
 </div>

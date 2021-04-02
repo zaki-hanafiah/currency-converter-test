@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
+import dayjs from 'dayjs';
 
 @Component({
 	selector: 'app-currency-exchanger',
@@ -9,6 +10,7 @@ import { ApiService } from '../api.service';
 export class CurrencyExchangerComponent implements OnInit {
 	currency_rates: any = {};
 	currency_selected: any | undefined;
+	currency_fetched_time: any | undefined;
 	rate_selected: any | undefined;
 	base_amount: any | undefined;
 	final_amount: any | undefined;
@@ -35,8 +37,10 @@ export class CurrencyExchangerComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		this.apiService.getCurrencyRatesForUSD().subscribe((data) => {
-			this.currency_rates = data;
+		// TODO: move to store, cache response until x amount of time elapsed to update cached response
+		this.apiService.getCurrencyRatesForUSD().subscribe((data: any) => {
+			this.currency_rates = data?.rates;
+			this.currency_fetched_time = dayjs.unix(data?.updated).format('YYYY-MM-DD HH:mm:ss');
 		});
 	}
 }
