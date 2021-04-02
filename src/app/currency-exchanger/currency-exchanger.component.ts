@@ -8,17 +8,17 @@ import dayjs from 'dayjs';
 	styleUrls: ['./currency-exchanger.component.scss'],
 })
 export class CurrencyExchangerComponent implements OnInit {
-	currency_rates: Object = {};
-	currency_selected: String | undefined;
-	currency_fetched_time: String | undefined;
-	rate_selected: Number | undefined;
-	base_amount: Number | undefined;
-	final_amount: Number | undefined;
-	errors: Object = {};
+	currency_rates: object = {};
+	currency_selected: string | undefined;
+	currency_fetched_time: string | undefined;
+	rate_selected: number | undefined;
+	base_amount: number | undefined;
+	final_amount: number | undefined;
+	errors: object = {};
 
 	constructor(private apiService: ApiService) {}
 
-	onSetCurrencyRate($event: { value: Number; text: String }) {
+	onSetCurrencyRate($event: { value: number; text: string }) {
 		this.rate_selected = $event.value;
 		this.currency_selected = $event.text;
 		this.calculateConversion();

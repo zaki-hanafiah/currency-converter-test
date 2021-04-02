@@ -1,10 +1,12 @@
 <mat-toolbar color="primary" class="app-header">
-	<div><a routerLink="/" class="logo">Z</a></div>
-	<span class="nav-tool-items">
-		<a class="nav-link" mat-button routerLink="/home">Home</a>
-		<a class="nav-link" mat-button routerLink="/settings">Settings</a>
-		<a class="nav-link" mat-button mat-raised-button routerLink="/login">Login</a>
-	</span>
+	<div>
+		<a routerLink="/" class="logo">Z</a>
+	</div>
+	<div class="nav-tool-items">
+		<a class="nav-link" mat-button routerLink="/home" routerLinkActive="nav-link--active">Home</a>
+		<a class="nav-link" mat-button routerLink="/settings" routerLinkActive="nav-link--active">Settings</a>
+		<a class="nav-link" mat-button routerLink="/login" mat-raised-button routerLinkActive="nav-link--active">Login</a>
+	</div>
 </mat-toolbar>
 <div class="container">
 	<router-outlet></router-outlet>

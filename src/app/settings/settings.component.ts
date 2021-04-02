@@ -7,11 +7,13 @@ import { ApiService } from '../api.service';
 	styleUrls: ['./settings.component.scss'],
 })
 export class SettingsComponent implements OnInit {
+	rates: object = {};
+
 	constructor(private apiService: ApiService) {}
 
 	ngOnInit() {
-		this.apiService.getCurrencyRatesForUSD().subscribe((data) => {
-			console.log(data);
+		this.apiService.getCurrencyRatesForUSD().subscribe((data: any) => {
+			this.rates = data?.rates;
 		});
 	}
 }

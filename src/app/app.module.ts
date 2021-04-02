@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { SettingsComponent } from './settings/settings.component';
 import { LoginComponent } from './login/login.component';
 import { StoreModule } from '@ngrx/store';
+import { AuthGuardService } from './auth-guard.service';
 
 @NgModule({
 	declarations: [
@@ -38,5 +39,6 @@ import { StoreModule } from '@ngrx/store';
 	],
 	bootstrap: [AppComponent],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
+	providers: [AuthGuardService],
 })
 export class AppModule {}
