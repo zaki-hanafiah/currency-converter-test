@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
 
 	getErrorPassword() {
 		return this.formGroup.get('password').hasError('required')
-			? 'Field is required'
+			? this.field_required_message
 			: this.formGroup.get('password').hasError('requirements')
 			? 'Password needs to be at least eight characters, one uppercase letter and one number'
 			: '';
