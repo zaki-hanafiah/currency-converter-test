@@ -2,22 +2,29 @@ import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthGuardService } from './auth-guard.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
 	providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-	constructor(private router: Router, private authGuardService: AuthGuardService) {}
+	constructor(private router: Router, private authGuardService: AuthGuardService, private _snackBar: MatSnackBar) {}
 	canActivate(
 		next: ActivatedRouteSnapshot,
 		state: RouterStateSnapshot
 	): Observable<boolean> | Promise<boolean> | boolean {
 		if (!this.authGuardService.isLoggedIn()) {
-			alert('You are not allowed to view this page');
 			this.router.navigate(['login']);
-			//redirect to login/home page etc
-			//return false to cancel the navigation
+			this.showWarningMessage();
 		}
 		return this.authGuardService.isLoggedIn();
+	}
+
+	showWarningMessage() {
+		this._snackBar.open('The page you attempted to access is for authorized users only', 'Dismiss', {
+			duration: 3500,
+			horizontalPosition: 'right',
+			verticalPosition: 'top',
+		});
 	}
 }

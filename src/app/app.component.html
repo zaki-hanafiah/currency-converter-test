@@ -5,8 +5,19 @@
 	<div class="nav-tool-items">
 		<a class="nav-link" mat-button routerLink="/home" routerLinkActive="nav-link--active">Home</a>
 		<a class="nav-link" mat-button routerLink="/settings" routerLinkActive="nav-link--active">Settings</a>
-		<a class="nav-link" mat-button routerLink="/login" mat-raised-button routerLinkActive="nav-link--active">Login</a>
+		<a
+			class="nav-link"
+			mat-button
+			routerLink="/login"
+			mat-raised-button
+			*ngIf="!authGuardService.isLoggedIn()"
+			routerLinkActive="nav-link--active"
+			>Login</a
+		>
 	</div>
+	<button class="nav-link" mat-button mat-raised-button *ngIf="authGuardService.isLoggedIn()" (click)="doLogOut()">
+		Logout
+	</button>
 </mat-toolbar>
 <div class="container">
 	<router-outlet></router-outlet>

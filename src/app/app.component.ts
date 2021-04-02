@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthGuardService } from './auth-guard.service';
 
 @Component({
 	selector: 'app-root',
@@ -7,16 +9,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 	title: String = 'currency-converter-test';
-	is_logged_in: Boolean = false;
+	is_logged_in: Boolean = this.authGuardService.isLoggedIn();
 
-	checkIsLoggedIn() {
-		if (localStorage.getItem('login_token')) {
-			this.is_logged_in = true;
-		}
-	}
+	constructor(public authGuardService: AuthGuardService, private router: Router) {}
 
 	doLogOut() {
-		localStorage.removeItem('login_token');
-		this.is_logged_in = false;
+		this.authGuardService.logout();
+		this.router.navigate(['home']);
 	}
 }
