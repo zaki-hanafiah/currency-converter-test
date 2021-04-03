@@ -2,7 +2,9 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-
+import { AuthGuardService } from '../auth-guard.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { OverlayModule } from '@angular/cdk/overlay';
 import { ApiService } from '../api.service';
 
 import { CurrencyExchangerComponent } from './currency-exchanger.component';
@@ -14,9 +16,9 @@ describe('CurrencyExchangerComponent', () => {
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
 			declarations: [CurrencyExchangerComponent],
-			imports: [HttpClientTestingModule],
+			imports: [HttpClientTestingModule, OverlayModule],
 			schemas: [CUSTOM_ELEMENTS_SCHEMA],
-			providers: [ApiService],
+			providers: [AuthGuardService, ApiService, MatSnackBar],
 		}).compileComponents();
 	});
 
@@ -41,7 +43,7 @@ describe('CurrencyExchangerComponent', () => {
 		expect(component.base_amount).toBe(10);
 	});
 
-	test('final amount should be 50 for base amount of 10 and conversation rate of 0.2', () => {
+	test('final amount should be 50 for base amount of 10 XYZ and conversation rate of 0.2', () => {
 		component.onSetBaseAmount(10);
 		component.onSetCurrencyRate({ value: 0.2, text: 'XYZ' });
 		component.calculateConversion();

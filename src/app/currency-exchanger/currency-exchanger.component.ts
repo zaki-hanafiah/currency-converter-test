@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
+import { AuthGuardService } from '../auth-guard.service';
 import dayjs from 'dayjs';
 
 @Component({
@@ -19,7 +20,7 @@ export class CurrencyExchangerComponent implements OnInit {
 	rate_error_message: string | undefined;
 	is_dirty: boolean = false;
 
-	constructor(private apiService: ApiService) {}
+	constructor(private apiService: ApiService, public authGuardService: AuthGuardService) {}
 
 	onSetCurrencyRate($event: { value: number; text: string }) {
 		this.rate_selected = $event.value;
@@ -64,18 +65,20 @@ export class CurrencyExchangerComponent implements OnInit {
 		// TODO: move to store, cache response until x amount of time elapsed to update cached response
 		this.apiService.getCurrencyRatesForUSD().subscribe((data: any) => {
 			this.currency_rates = data?.rates;
-			if (saved_currencies_list && typeof saved_currencies_list === 'string') {
-				const selected_rates = JSON.parse(saved_currencies_list);
+			if (this.authGuardService.isLoggedIn()) {
+				if (saved_currencies_list && typeof saved_currencies_list === 'string') {
+					const selected_rates = JSON.parse(saved_currencies_list);
 
-				const filtered_currencies = Object.keys(data?.rates)
-					.filter((key) => selected_rates.includes(key))
-					.reduce((obj, key) => {
-						return {
-							...obj,
-							[key]: data?.rates[key],
-						};
-					}, {});
-				this.currency_rates = filtered_currencies;
+					const filtered_currencies = Object.keys(data?.rates)
+						.filter((key) => selected_rates.includes(key))
+						.reduce((obj, key) => {
+							return {
+								...obj,
+								[key]: data?.rates[key],
+							};
+						}, {});
+					this.currency_rates = filtered_currencies;
+				}
 			}
 			this.currency_fetched_time = dayjs.unix(data?.updated).format('YYYY-MM-DD HH:mm:ss');
 		});

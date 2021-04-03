@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthGuardService } from './auth-guard.service';
 
@@ -15,12 +15,11 @@ export class AppComponent {
 
 	doLogOut() {
 		this.authGuardService.logout();
-		if (this.router.url !== 'home') {
+		if (this.router.url !== '/home') {
 			this.router.navigate(['home']);
 		} else {
-			this.router.routeReuseStrategy.shouldReuseRoute = function () {
-				return false;
-			};
+			// TODO: Find a way to re-initialize same route without browser refresh
+			window.location.reload();
 		}
 	}
 }
