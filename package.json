@@ -7,7 +7,7 @@
 		"build": "ng build",
 		"test": "jest --verbose",
 		"test:watch": "jest --watch",
-		"test:ci": "jest --verbose --runInBand",
+		"test:ci": "jest --verbose --coverage --runInBand",
 		"lint": "ng lint",
 		"prettier:fix": "prettier --config ./.prettierrc --write \"src/{app,environments}/**/*{.ts,.html,.scss}\"",
 		"prettier:check": "prettier --config ./.prettierrc --list-different \"src/{app,environments}/**/*{.ts,.html,.scss}\""

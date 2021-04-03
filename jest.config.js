@@ -5,6 +5,6 @@ module.exports = {
 	setupFilesAfterEnv: ['<rootDir>/setupJest.ts'],
 	testMatch: ['**/+(*.)+(spec).+(ts)'],
 	collectCoverage: true,
-	coverageReporters: ['html'],
+	coverageReporters: ['html', 'json-summary', 'text'],
 	coverageDirectory: 'coverage/currency-converter-test',
 };
