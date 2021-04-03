@@ -18,14 +18,19 @@
 	display: flex;
 	align-items: center;
 
-	.nav-link {
-		text-decoration: none;
-		color: #f4f4f4;
-		padding: 0 1.6rem;
-		font-weight: lighter;
+	.nav {
+		&-tool-items {
+			margin-right: auto;
+		}
+		&-link {
+			text-decoration: none;
+			color: #f4f4f4;
+			padding: 0 1.6rem;
+			font-weight: lighter;
 
-		&--active {
-			font-weight: bold;
+			&--active {
+				font-weight: bold;
+			}
 		}
 	}
 }
