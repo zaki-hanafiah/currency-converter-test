@@ -6,5 +6,5 @@ module.exports = {
 	testMatch: ['**/+(*.)+(spec).+(ts)'],
 	collectCoverage: true,
 	coverageReporters: ['html', 'json-summary', 'text'],
-	coverageDirectory: 'coverage/currency-converter-test',
+	coverageDirectory: '<rootDir>/coverage/tests',
 };
