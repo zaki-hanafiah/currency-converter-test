@@ -26,5 +26,5 @@ jobs:
         uses: AthleticNet/comment-test-coverage@1.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          path: coverage/currency-convertest-test/coverage-summary.json
+          path: coverage/tests/coverage-summary.json
           title: Jest Test Coverage
