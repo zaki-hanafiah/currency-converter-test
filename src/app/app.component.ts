@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { AuthGuardService } from './auth-guard.service';
+import { routeTransitionAnimations } from './route-transition-animations';
 
 @Component({
 	selector: 'app-root',
 	templateUrl: './app.component.html',
 	styleUrls: ['./app.component.scss'],
+	animations: [routeTransitionAnimations],
 })
 export class AppComponent {
 	title: String = 'currency-converter-test';
@@ -21,5 +23,9 @@ export class AppComponent {
 			// TODO: Find a way to re-initialize same route without browser refresh
 			window.location.reload();
 		}
+	}
+
+	prepareRoute(outlet: RouterOutlet): boolean {
+		return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animationState'];
 	}
 }
