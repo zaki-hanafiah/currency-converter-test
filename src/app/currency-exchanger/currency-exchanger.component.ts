@@ -1,12 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { AuthGuardService } from '../auth-guard.service';
+import { trigger, style, animate, transition } from '@angular/animations';
+
 import dayjs from 'dayjs';
 
 @Component({
 	selector: 'app-currency-exchanger',
 	templateUrl: './currency-exchanger.component.html',
 	styleUrls: ['./currency-exchanger.component.scss'],
+	animations: [
+		trigger('inOutAnimation', [
+			transition(':enter', [style({ opacity: 0 }), animate('0.3s ease-out', style({ opacity: 1 }))]),
+			transition(':leave', [style({ opacity: 1 }), animate('0.3s ease-in', style({ opacity: 0 }))]),
+		]),
+	],
 })
 export class CurrencyExchangerComponent implements OnInit {
 	currency_rates: object = {};
@@ -20,7 +28,7 @@ export class CurrencyExchangerComponent implements OnInit {
 	rate_error_message: string | undefined;
 	is_dirty: boolean = false;
 
-	constructor(private apiService: ApiService, public authGuardService: AuthGuardService) {}
+	constructor(private apiService: ApiService, private authGuardService: AuthGuardService) {}
 
 	onSetCurrencyRate($event: { value: number; text: string }) {
 		this.rate_selected = $event.value;
