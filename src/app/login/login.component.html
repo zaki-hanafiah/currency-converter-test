@@ -22,7 +22,9 @@
 					</mat-form-field>
 				</div>
 			</mat-card-content>
-			<button mat-stroked-button color="accent" class="login-btn__submit">Login</button>
+			<button mat-stroked-button color="accent" class="login-btn__submit" [disabled]="should_disable_login">
+				Login
+			</button>
 		</form>
 	</mat-card>
 </div>

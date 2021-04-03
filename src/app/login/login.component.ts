@@ -24,12 +24,23 @@ export class LoginComponent implements OnInit {
 
 	doLogin(event: any) {
 		event.preventDefault();
+		if (this.should_disable_login) {
+			return;
+		}
 		this.authGuardService.login();
 		this.router.navigate(['home']);
 	}
 
+	get should_disable_login() {
+		return !this.username.valid || !this.password.valid;
+	}
+
 	get username() {
 		return this.formGroup.get('username') as FormControl;
+	}
+
+	get password() {
+		return this.formGroup.get('password') as FormControl;
 	}
 
 	checkPassword(control: any) {
