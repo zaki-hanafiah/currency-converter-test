@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthGuardService } from './auth-guard.service';
 
@@ -15,6 +15,12 @@ export class AppComponent {
 
 	doLogOut() {
 		this.authGuardService.logout();
-		this.router.navigate(['home']);
+		if (this.router.url !== 'home') {
+			this.router.navigate(['home']);
+		} else {
+			this.router.routeReuseStrategy.shouldReuseRoute = function () {
+				return false;
+			};
+		}
 	}
 }

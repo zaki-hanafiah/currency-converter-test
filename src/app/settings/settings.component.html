@@ -25,7 +25,7 @@
 			mat-stroked-button
 			color="accent"
 			class="settings-btn__save"
-			[attr.disabled]="!currenciesForm.valid"
+			[disabled]="should_disable_save"
 			(click)="saveSettings($event)"
 		>
 			Save

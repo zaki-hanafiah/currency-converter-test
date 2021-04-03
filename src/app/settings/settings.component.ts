@@ -31,6 +31,10 @@ export class SettingsComponent implements OnInit {
 		});
 	}
 
+	get should_disable_save() {
+		return !this.currenciesForm.valid;
+	}
+
 	saveSettings(event: any) {
 		event.preventDefault();
 		if (!this.currenciesForm.valid) {
