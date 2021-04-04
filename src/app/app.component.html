@@ -11,6 +11,6 @@
 		Logout
 	</button>
 </mat-toolbar>
-<div class="container">
-	<router-outlet></router-outlet>
+<div class="container" [@triggerName]="prepareRoute(outlet)">
+	<router-outlet #outlet="outlet"></router-outlet>
 </div>
