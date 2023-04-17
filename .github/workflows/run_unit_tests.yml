@@ -26,7 +26,7 @@ jobs:
         env:
           CI: true
       - name: Comment Test Coverage
-        uses: AthleticNet/comment-test-coverage@1.1
+        uses: AthleticNet/comment-test-coverage@1.2.2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           path: coverage/tests/coverage-summary.json
