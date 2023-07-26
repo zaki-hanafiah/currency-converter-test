@@ -8,7 +8,7 @@ Exchange rate / Currency converter app using rates provided by [CurrencyAPI](htt
 
 - You'll need to generate your own API key and add it to the `.env` file. Example is provided.
 
-Test Link: https://xcurrency.zakhov.com/
+Test Link: [https://xcurrency.zakhov.com/](https://currency-converter-test-3qsds8n65-zakhov.vercel.app/home)
 
 ## Development server
 
